@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">
+  <span>{{title}}</span>
+</mat-toolbar>
+
+<div class="container">
+  <form [formGroup]="options">
+    <mat-form-field appearance="fill">
+      <mat-label>Introduce el peso deseado (en MB):</mat-label>
+      <input matInput type="number" min="0" placeholder="Example: 200" [formControl]="weight"/>
+      <span matSuffix>MB</span>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Introduce la duración del video (en segundos)</mat-label>
+        <input matInput type="number" min="0" max="60" [formControl]="timeDuration"/>
+        <span matSuffix>s</span>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Introduce el bitrate de calidad del audio (en kbps)</mat-label>
+      <input matInput type="number" min="0" placeholder="Example: 1000" [formControl]="audioBitrate"/>
+      <span matSuffix>kbps</span>
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="this.options.invalid" (click)="calculateBitrate()">
+      Calcular
+    </button>
+  </form>
+
+  <section class="calculation" *ngIf="bitrateCalculated">
+    <h1>Bitrate a introducir: {{bitrateCalculated}} kbps</h1>
+  </section>
+
+  <section class="controls">
+    <button mat-raised-button color="warn" (click)="resetForm()">
+      Resetear
+    </button>
+  </section>
+
+  <mat-divider></mat-divider>
+
+  <p>Cristian Cajiao Skarnic, 2020</p>
+</div>

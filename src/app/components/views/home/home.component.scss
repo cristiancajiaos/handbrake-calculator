@@ -1,0 +1,17 @@
+.container {
+  padding: 1rem;
+
+  form {
+    mat-form-field {
+      display: block;
+    }
+
+    button {
+      margin-bottom: 1rem;
+    }
+  }
+
+  section.controls {
+    margin-bottom: 1rem;
+  }
+}
